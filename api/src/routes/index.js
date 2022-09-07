@@ -42,7 +42,7 @@ const getAllDogs = async () => {
  const infoDb = await getDbInfo() ;
  const infoTt = infoApi.concat(infoDb);
  return infoTt
-}
+};
 
 router.get ("/dogs", async (req,res) =>{
     const name = req.query.name
@@ -55,6 +55,23 @@ router.get ("/dogs", async (req,res) =>{
     } else {
         res.status(200).send(dogsTotal)
     }
-})
+});
+
+router.get ("/temperaments", async(req,res) => {
+    const tempApi = await axios.get ('https://api.thedogapi.com/v1/breeds')
+    const temps = tempApi.data.map( n => n.temperament.split(',')) 
+    const tempEach = temps.map (n => {
+        for (let i = 0; i < n.length; i++)
+        return n[i] })
+        console.log(tempEach)
+        tempEach.forEach(el => {
+            temperament.findOrCreate({
+                where : {name : el}
+            })
+        })
+        const allTemperaments = await temperament.findAll();
+        res.send(allTemperaments)
+    })
+
 
 module.exports = router;
