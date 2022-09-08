@@ -40,7 +40,7 @@ const getDbInfo = async () => {
 const getAllDogs = async () => {
  const infoApi = await getApiInfo();
  const infoDb = await getDbInfo() ;
- const infoTt = infoApi.concat(infoDb);
+ const infoTt = infoApi.concat(infoDb)
  return infoTt
 };
 
@@ -57,21 +57,37 @@ router.get ("/dogs", async (req,res) =>{
     }
 });
 
-router.get ("/temperaments", async(req,res) => {
-    const tempApi = await axios.get ('https://api.thedogapi.com/v1/breeds')
-    const temps = tempApi.data.map( n => n.temperament.split(',')) 
-    const tempEach = temps.map (n => {
-        for (let i = 0; i < n.length; i++)
-        return n[i] })
-        console.log(tempEach)
-        tempEach.forEach(el => {
-            temperament.findOrCreate({
-                where : {name : el}
-            })
-        })
-        const allTemperaments = await temperament.findAll();
-        res.send(allTemperaments)
-    })
+// router.get ("/temperaments", async(req,res) => {
+//     const tempApi = await axios.get ('https://api.thedogapi.com/v1/breeds')
+//     const temps = tempApi.data.map( n => n.temperament.split(",")) 
+//     const tempEach = temps.map (n => {
+//         for (let i = 0; i < n.length; i++)
+//         return n[i] })
+//         console.log(tempEach)
+//         tempEach.forEach(el => {
+//             Temp.findOrCreate({
+//                 where : {name : el}
+//             })
+//         })
+//         const allTemperaments = await Temp.findAll();
+//         res.send(allTemperaments)
+//     })
 
+    router.get("/temperament", async (req, res) => {
+        const allData = await axios.get('https://api.thedogapi.com/v1/breeds');        
+          let everyTemperament = allData.data.map((dog) => (dog.temperament ? dog.temperament : "No info"))
+            .map((dog) => dog?.split(", "));
+          let eachTemperament = [...new Set(everyTemperament.flat())];
+          console.log(eachTemperament)
+          eachTemperament.forEach(el => {
+                Temp.findOrCreate({
+                where: { name: el },
+              
+            })
+          });
+          const allTemperaments = await Temp.findAll();
+          res.send(allTemperaments)
+       
+      });
 
 module.exports = router;
