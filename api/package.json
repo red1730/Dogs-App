@@ -22,6 +22,11 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
+    "react": "^18.2.0",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
