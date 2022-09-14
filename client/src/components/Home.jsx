@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect} from "react";
 import { useDispatch, useSelector} from "react-redux"
-import { getDog } from "../actions";
+import { filterCreated, getDog } from "../actions";
 import { Link } from "react-router-dom"; 
 import Card from "./Card";
 import Paginado from "./Paginado";
@@ -32,6 +32,12 @@ export default function Home (){
     dispatchEvent(getDog());
   }
 
+const handleFilterCreated = (e) =>{
+  dispatch(filterCreated(e.target.value))
+}
+
+
+
   return (
 <div>
   <Link to= "dogs">Create race</Link>
@@ -42,20 +48,19 @@ Reload races
 
 <div>
     <select>
-      <option value='ord'> Order</option>
       <option value= 'rsg'>Rising</option>
       <option value= 'dct'>Decent</option>
     </select>
     <select>
       <option value= 'wgt'>Weigth</option>
     </select>
-    <select>
-      <option value= 'rt'>Race type</option>
-      <option value= 'all'>All</option>
-      <option value= 'exs'>Existing</option>
-      <option value= 'ctd'>Created</option>
+    <select onChange={(e) => handleFilterCreated(e)}>
+      <option value= 'All'>All</option>
+      <option value= 'Existing'>Existing</option>
+      <option value= 'Created'>Created</option>
     </select>
-    <select value= 'temp'>Temperament
+    <select>
+    <option value= 'tmp'>Temperament </option>
     </select>
 
     <Paginado

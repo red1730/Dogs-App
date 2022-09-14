@@ -15,7 +15,7 @@ export default function Paginado ({dogsPerPage, allDogs, paginado}){
       { pageNumber && 
       pageNumber.map( number =>(
         <button className="number" key={number}>
-          <a onClick={()=>paginado(number)}>{number}</a>
+          <a href onClick={()=>paginado(number)}>{number}</a>
         </button>
     ))
     }
