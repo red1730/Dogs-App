@@ -1,16 +1,18 @@
 import React from "react";
 import { useState, useEffect} from "react";
 import { useDispatch, useSelector} from "react-redux"
-import { filterCreated, getDog } from "../actions";
+import { filterCreated, getDog, orderByName } from "../actions";
 import { Link } from "react-router-dom"; 
 import Card from "./Card";
 import Paginado from "./Paginado";
 
 export default function Home (){
   
-  
+
+
   const dispatch = useDispatch()
-  const allDogs = useSelector ((state) => state.dog) 
+  const allDogs = useSelector ((state) => state.dogs) 
+  const [orden, setOrden] = useState('')
   const [currentPage, setCurrentPage] = useState(1) // pagina actual
   const [dogsPerPage] = useState(8) // personajes x pag
   const indexOfLastDog = currentPage * dogsPerPage // 8
@@ -18,22 +20,28 @@ export default function Home (){
   const currentDogs = allDogs?.slice(indexOfFirstDog, indexOfLastDog)
 
 
-  const paginado = (pageNumber) => {
+const paginado = (pageNumber) => {
     setCurrentPage(pageNumber)
-  }
-
+}
 
   useEffect(() => {
     dispatch(getDog());
   },[dispatch])
   
-  const  handleClick =(e) =>{
+const  handleClick =(e) =>{
     e.preventDefault();
     dispatchEvent(getDog());
-  }
+}
 
 const handleFilterCreated = (e) =>{
   dispatch(filterCreated(e.target.value))
+}
+
+const handleSort = (e) => {
+  e.preventDefault();
+  dispatch(orderByName(e.target.value))
+  setCurrentPage(1);
+  setOrden(`Order ${e.target.value}`)
 }
 
 
@@ -47,9 +55,9 @@ Reload races
 </button>
 
 <div>
-    <select>
-      <option value= 'rsg'>Rising</option>
-      <option value= 'dct'>Decent</option>
+    <select onChange={(e) => handleSort(e)}>
+      <option value= 'asc'>Rising</option>
+      <option value= 'dsc'>Decent</option>
     </select>
     <select>
       <option value= 'wgt'>Weigth</option>
