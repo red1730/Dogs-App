@@ -1,0 +1,34 @@
+.landingpage {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 60px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  text-align: left;  
+  display: flexbox;
+  
+
+}
+
+.button {
+  font-family:'Courier New', Courier, monospace;
+  font-size: 15px;
+  background-color:rgb(254, 0, 0);
+  border: none;
+  color: whitesmoke;
+  padding: 8px 52px;
+  float: left;
+  margin-left: 40px;
+  /* text-align: left; */
+  /* flex-direction: flex; */
+  transition-duration: 1.2s;
+  /* text-decoration: none; */
+  /* margin-bottom: 10%; */
+  /* border-radius: 10px; */
+  /* box-shadow: 0 8px 16px 0 rgba(54, 53, 53, 0.39), 0 6px 20px 0 rgba(0,0,0,0.19); */
+
+}
+.button:hover {
+  background-color: #ffffff;
+  color: white;
+}

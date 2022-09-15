@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
+import "./styles/home.css"
 
 export default function Home (){
   
@@ -27,6 +28,7 @@ const paginado = (pageNumber) => {
 
   useEffect(() => {
     dispatch(getDog());
+  
   },[dispatch])
   
 const handleClick = (e) =>{
@@ -67,8 +69,8 @@ Reload Races
     </select>
     <select onChange={(e) => handleWeight(e)}>
       <option >Weigth</option>
-      <option value="wasc">Rising Weight</option>
-      <option value="wdsc">Decent Weight</option>
+      <option value="wasc">Ascending Weight</option>
+      <option value="wdsc">Descending Weight</option>
     </select>
     <select onChange={(e) => handleFilterCreated(e)}>
       <option value= 'All'>All</option>
