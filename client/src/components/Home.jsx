@@ -1,10 +1,11 @@
 import React from "react";
 import { useState, useEffect} from "react";
 import { useDispatch, useSelector} from "react-redux"
-import { filterCreated, getDog, orderByName } from "../actions";
+import { filterCreated, getDog, orderByName, orderByWeight } from "../actions";
 import { Link } from "react-router-dom"; 
 import Card from "./Card";
 import Paginado from "./Paginado";
+import SearchBar from "./SearchBar";
 
 export default function Home (){
   
@@ -44,23 +45,30 @@ const handleSort = (e) => {
   setOrden(`Order ${e.target.value}`)
 }
 
+const handleWeight = (e) => {
+  e.preventDefault();
+  dispatch(orderByWeight(e.target.value))
+  setCurrentPage(1);
+  setOrden(`Order ${e.target.value}`)
+}
 
 
   return (
 <div>
-  <Link to= "dogs">Create race</Link>
+  <Link to= "dogs">Create Race</Link>
 <h1>Dogs</h1>
 <button onClick={ e=> {handleClick(e)}}>
 Reload races
 </button>
-
 <div>
     <select onChange={(e) => handleSort(e)}>
       <option value= 'asc'>Rising</option>
       <option value= 'dsc'>Decent</option>
     </select>
-    <select>
-      <option value= 'wgt'>Weigth</option>
+    <select onChange={(e) => handleWeight(e)}>
+      <option >Weigth</option>
+      <option value="wasc">Rising Weight</option>
+      <option value="wdsc">Decent Weight</option>
     </select>
     <select onChange={(e) => handleFilterCreated(e)}>
       <option value= 'All'>All</option>
@@ -70,6 +78,7 @@ Reload races
     <select>
     <option value= 'tmp'>Temperament </option>
     </select>
+    <SearchBar/>
 
     <Paginado
     dogsPerPage={dogsPerPage}
