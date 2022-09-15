@@ -12,6 +12,12 @@ function rootReducer (state = initialState, action){
         dogs: action.payload,
         allDogs: action.payload
       };
+
+    case 'GET_DOG_BY_NAME':
+      return{
+        ...state,
+        dogs: action.payload,
+      };
      
     case 'FILTER_CREATED':   
           const createdFilter = action.payload === 'Created' ? state.allDogs.filter((el) => el.createInDb) : state.allDogs.filter((el) => !el.createInDb) 
@@ -64,11 +70,7 @@ function rootReducer (state = initialState, action){
           dogs: sorted_Arr_W
         };
 
-    case 'GET_DOG_BY_NAME':
-      return{
-        ...state,
-        dogs: action.payload,
-      };
+    
 
 
     default:        

@@ -26,7 +26,7 @@ const handleSubmit = (e) => {
             onChange={(e) => handleInputChange(e)}
             >
             </input>
-                <button type= 'submit' onSubmit={(e)=>handleSubmit(e)}>Search</button>
+                <button type= 'submit' onClick={(e)=>handleSubmit(e)}>Search</button>
         </div>
     )
 }

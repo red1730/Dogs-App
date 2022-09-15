@@ -29,9 +29,9 @@ const paginado = (pageNumber) => {
     dispatch(getDog());
   },[dispatch])
   
-const  handleClick =(e) =>{
+const handleClick = (e) =>{
     e.preventDefault();
-    dispatchEvent(getDog());
+    dispatch(getDog());
 }
 
 const handleFilterCreated = (e) =>{
@@ -57,13 +57,13 @@ const handleWeight = (e) => {
 <div>
   <Link to= "dogs">Create Race</Link>
 <h1>Dogs</h1>
-<button onClick={ e=> {handleClick(e)}}>
-Reload races
+<button onClick={ (e) => handleClick(e)}>
+Reload Races
 </button>
 <div>
     <select onChange={(e) => handleSort(e)}>
-      <option value= 'asc'>Rising</option>
-      <option value= 'dsc'>Decent</option>
+      <option value= 'asc'>A-Z</option>
+      <option value= 'dsc'>Z-A</option>
     </select>
     <select onChange={(e) => handleWeight(e)}>
       <option >Weigth</option>
