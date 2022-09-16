@@ -56,10 +56,10 @@ const handleWeight = (e) => {
 
 
   return (
-<div>
+<div className="home">
   <Link to= "dogs">Create Race</Link>
 <h1>Dogs</h1>
-<button onClick={ (e) => handleClick(e)}>
+<button className="reload" onClick={ (e) => handleClick(e)}>
 Reload Races
 </button>
 <div>

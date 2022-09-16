@@ -1,0 +1,11 @@
+.card {
+  font-family:'Courier New',  monospace;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+
+  border: 2px solid black;
+
+
+ direction:'row'
+}

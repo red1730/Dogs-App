@@ -1,0 +1,14 @@
+
+ .number:active {
+    background-color: red ;
+}
+
+.number {
+  font-family:'Courier New',  monospace;
+  border: 0.2px solid ;
+  background-color: transparent;
+  transition-duration: 0.8s;
+}
+.number:hover {
+  background-color:#ffffff;
+}

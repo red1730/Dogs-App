@@ -8,6 +8,9 @@ return (
   <div className="landingpage">
         <h1>dogs.</h1>
           </div>
+            <div className='subtitle'>
+              <h1>my bestie, your bestie.</h1>
+            </div>
           <div>
            <Link to= '/home'>
              <button className='button'>Entry</button>
