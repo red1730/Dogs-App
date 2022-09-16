@@ -1,16 +1,18 @@
 import React from "react";
 import { useState, useEffect} from "react";
 import { useDispatch, useSelector} from "react-redux"
-import { filterCreated, getDog, orderByName, orderByWeight } from "../actions";
+import { filterCreated, getDog, orderByName, orderByWeight, getTemperament } from "../actions";
 import { Link } from "react-router-dom"; 
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
 import "./styles/home.css"
 
+
 export default function Home (){
   
 
+  const temperament = useSelector((state) => state.temperament)
 
   const dispatch = useDispatch()
   const allDogs = useSelector ((state) => state.dogs) 
@@ -30,6 +32,10 @@ const paginado = (pageNumber) => {
     dispatch(getDog());
   
   },[dispatch])
+
+  useEffect(() => {
+    dispatch(getTemperament());
+  }, [dispatch])
   
 const handleClick = (e) =>{
     e.preventDefault();
@@ -57,12 +63,13 @@ const handleWeight = (e) => {
 
   return (
 <div className="home">
-  <Link to= "dogs">Create Race</Link>
-<h1>Dogs</h1>
+  <Link to= "/dogcreated">Create Race</Link>
+<h1 >Dogs.</h1>
 <button className="reload" onClick={ (e) => handleClick(e)}>
 Reload Races
 </button>
 <div>
+    <SearchBar/>
     <select onChange={(e) => handleSort(e)}>
       <option value= 'asc'>A-Z</option>
       <option value= 'dsc'>Z-A</option>
@@ -78,9 +85,10 @@ Reload Races
       <option value= 'Created'>Created</option>
     </select>
     <select>
-    <option value= 'tmp'>Temperament </option>
-    </select>
-    <SearchBar/>
+                {temperament.map((temp) => (
+                  <option value={temp.name}>{temp.name}</option>
+                ))}
+              </select>
 
     <Paginado
     dogsPerPage={dogsPerPage}
@@ -94,7 +102,7 @@ Reload Races
           <Link to={"/home/" + c.id}>
             <Card 
               name={c.name}
-              image={c.image}
+              image={c.image? c.image : <img src="url(./styles/img/default.jpg)"/>}
               weight={c.weight}
               temperament={c.temperament}
               />
@@ -105,12 +113,13 @@ Reload Races
        )
      })
     }
+    </div>
      <Paginado
     dogsPerPage={dogsPerPage}
     allDogs= {allDogs?.length}
     paginado= {paginado}
     />
-</div>
+{/* <h6 className="signature">made with ❤ by RED.</h6> */}
   </div>
   )
 }

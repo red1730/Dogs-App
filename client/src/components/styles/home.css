@@ -1,21 +1,46 @@
 .home {
+  background-color: rgb(187, 187, 187);
   font-family:'Times New Roman', Times, serif;
   font-size: 20px;
-  position: relative;
+  position: sticky;
+  margin-left: 20px;
+  width: 100%;
+  height: auto;
+
   
 }
 .reload {
   background-color: white;
-  font-family:'Times New Roman', Times, serif;
-  font-size: 18px;
-  border: none;
+  font-family:'Roboto', sans-serif;
+  font-size: 14px;
   padding: 5px 22px;
-  transition-duration: 0.8s;
-
+  transition-duration: 1.2s;
+  /* transition: all 0.3s ease 0s; */
+  outline: none;
+  border: none;
+  border-radius: 0.5em;
+  letter-spacing: 2.5px;
+  box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px;
+  margin-bottom: 10px;
+}
+.reload:hover{
+ color: red;
+ cursor: pointer;
+}
+.reload:active {
+  background-color: black;
+}
+.signature {
+  font-family:'Times New Roman', Times, serif;
+  font-size: 15px;
+  display: flexbox;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  letter-spacing: 2px;
+  transition-duration: 1s;
 
 }
-.reload:hover {
-  background-color:black;
-  border: black;
-  color: white;
+.signature:hover{
+  color: red;
 }

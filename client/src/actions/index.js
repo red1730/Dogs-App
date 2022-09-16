@@ -22,7 +22,25 @@ export function getDogByName(name) {
       console.log(error)
     }
   }
-}
+};
+
+export function getTemperament() {
+  return async function (dispatch) {
+    var json = await axios("http://localhost:3001/temperament", {})
+    return dispatch ({
+      type: "GET_TEMPERAMENT",
+      payload :json.data
+    })
+  }
+};
+
+export function postDog(name){
+  return async function (dispatch) {
+    var json = await axios.post("http://localhost:3001/dogs",name)
+    console.log (json)
+    return json;
+  }
+};
 
 export function filterCreated(payload){
   return {

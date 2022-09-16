@@ -1,6 +1,8 @@
-
- .number:active {
-    background-color: red ;
+.pagination {
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  /* position: static; */
 }
 
 .number {
@@ -8,7 +10,11 @@
   border: 0.2px solid ;
   background-color: transparent;
   transition-duration: 0.8s;
+
 }
 .number:hover {
   background-color:#ffffff;
+}
+.number:active {
+  background-color: black;
 }

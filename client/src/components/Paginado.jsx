@@ -10,7 +10,7 @@ export default function Paginado ({dogsPerPage, allDogs, paginado}){
     }
 
   return (
-    <div>
+    <div >
     <nav>
       <ul className="pagination">
       { pageNumber && 
