@@ -34,7 +34,9 @@ export function getTemperament() {
   }
 };
 
+
 export function postDog(name){
+  console.log(JSON.stringify(name))
   return async function (dispatch) {
     var json = await axios.post("http://localhost:3001/dogs",name)
     console.log (json)

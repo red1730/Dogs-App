@@ -10,4 +10,4 @@ export default function Card({name, image, temperament,weight}){
       <h5>Temperament: {temperament}</h5>
     </div>
   );
-}
+};

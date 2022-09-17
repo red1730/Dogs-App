@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function DogCreate (){
   const dispatch = useDispatch()
+  const history = useHistory()
   const temperament = useSelector((state) => state.temperament)
 
   const [input, setInput] = useState({
@@ -12,21 +13,43 @@ export default function DogCreate (){
     height: "",
     weight: "",
     years: "",
-    personality: []
+    image:"",
+    temperament: []
   })
-
   useEffect(() => {
     dispatch(getTemperament());
   }, [dispatch])
-
-const handleChange =(e) => {
+ 
+const handleChange = (e) => {
   setInput ({
     ...input,
     [e.target.name] : e.target.value // cargamos los name="" de cada input
   })
-console.log
-}
+  console.log(input)
+};
 
+const handleSelect = (e) => {
+setInput ({
+  ...input,
+  temperament: [ ...input.temperament, e.target.value]
+ })
+};
+
+const handleSubmit = (e) => {
+e.preventDefault();
+console.log(input)
+dispatch(postDog(input))
+alert("Dog successfully created!!")
+setInput({ // seteo nuevamente mi estado a 0
+  name: "",
+    height: "",
+    weight: "",
+    years: "",
+    image: "",
+    temperament: []
+ })
+ history.push('/home') // una vez creado, redirecciona
+};
 
 
 
@@ -34,19 +57,19 @@ console.log
     <div>
         <Link to= '/home'><button>Back</button></Link>
         <h1>Create your Dog!</h1>
-        <form>
+        <form onSubmit={(e) => handleSubmit(e)}>
             <div>
                               <label>Name: </label><input
               type= "text"
               value={input.name}
               name="name"
-              onChange={handleChange}
+              onChange={handleChange}// se puede ejecutar el handle de esta manera tmb.
               /></div>
                           <div><label>Max Height: </label><input
               type="text"
               value={input.height}
               name="height"   
-              onChange={handleChange}           
+              onChange={(e) => handleChange(e)}           
               /></div>
                           <div><label>Max Weight: </label><input
               type="text"
@@ -60,17 +83,18 @@ console.log
               name= "years"
               onChange={handleChange}
               /></div>
-                          <div><label>Longevity: </label><input 
+                   <div><label>Image: </label><input 
               type="text"
-              value={input.years}
-              name= "years"
+              value={input.image}
+              name= "image"
               onChange={handleChange}
               /></div>
-              <select>
+                            <select onChange={(e) => handleSelect(e)}>
                 {temperament.map((temp) => (
                   <option value={temp.name}>{temp.name}</option>
                 ))}
               </select>
+              <ul><li>{input.temperament.map((el) => el + ", ")}</li></ul>
                     <button type="submit">Create</button>      
         </form>
 

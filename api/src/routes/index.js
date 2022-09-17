@@ -86,7 +86,8 @@ router.get("/temperament", async (req, res) => {
     res.send(allTemperaments)       
 });
 
-router.post('/dogs',async (req,res)=>{   
+router.post('/dogs',async (req,res)=>{  
+    console.log(JSON.stringify(req.body)) 
         let {
             name,
             height,
