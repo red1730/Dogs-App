@@ -36,7 +36,6 @@ export function getTemperament() {
 
 
 export function postDog(name){
-  console.log(JSON.stringify(name))
   return async function (dispatch) {
     var json = await axios.post("http://localhost:3001/dogs",name)
     console.log (json)
@@ -62,6 +61,20 @@ export function orderByWeight(payload){
   return {
     type: 'ORDER_BY_WEIGHT',  
     payload
+  }
+};
+
+export function getDetail (id){
+  return async function(dispatch){
+    try{
+      var json = await axios("http://localhost:3001/dogs"+ id)
+return dispatch({
+    type: 'GET_DETAIL',
+    payload: json.data
+})
+    }catch(error){
+      console.log(error)
+    }
   }
 };
 

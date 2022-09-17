@@ -17,6 +17,7 @@ const getApiInfo = async () => {
             height: el.height.metric,
             weight: el.weight.metric,
             years: el.life_span,
+            temperament: el.temperament,
             image: el.image.url
         };
     });
@@ -54,22 +55,6 @@ router.get("/dogs", async (req,res) => {
      res.status(200).send(dogsTotal)
     }
 });
-
-// router.get ("/temperaments", async(req,res) => {
-//     const tempApi = await axios.get ('https://api.thedogapi.com/v1/breeds')
-//     const temps = tempApi.data.map( n => n.temperament.split(",")) 
-//     const tempEach = temps.map (n => {
-//         for (let i = 0; i < n.length; i++)
-//         return n[i] })
-//         console.log(tempEach)
-//         tempEach.forEach(el => {
-//             Temp.findOrCreate({
-//                 where : {name : el}
-//             })
-//         })
-//         const allTemperaments = await Temp.findAll();
-//         res.send(allTemperaments)
-//     })
 
 router.get("/temperament", async (req, res) => {
     const allData = await axios.get('https://api.thedogapi.com/v1/breeds');        

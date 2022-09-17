@@ -102,7 +102,7 @@ Reload Races
           <Link to={"/home/" + c.id}>
             <Card 
               name={c.name}
-              image={c.image? c.image : <img src="url(./styles/img/default.jpg)"/>}
+              image={c.image? c.image : <img  alt="img"  src="https://www.infobae.com/new-resizer/L2RD4MJtKJPWIRMpQ-qwEfV07k8=/768x768/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/BLZJHTB27ZHUPKK3A7GXTMIEQA.jpg"/>}
               weight={c.weight}
               temperament={c.temperament}
               />

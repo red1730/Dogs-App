@@ -1,7 +1,8 @@
 const initialState = {
   dogs: [],
   allDogs: [],
-  temperament: []
+  temperament: [],
+  detail: []
 };
 
 function rootReducer (state = initialState, action){
@@ -30,6 +31,12 @@ function rootReducer (state = initialState, action){
         ...state,
         dogs: action.payload,
       };
+      case 'GET_DETAIL':
+        return {
+          ...state,
+          detail: action.payload
+
+        }
      
     case 'FILTER_CREATED':   
           const createdFilter = action.payload === 'Created' ? state.allDogs.filter((el) => el.createInDb) : state.allDogs.filter((el) => !el.createInDb) 

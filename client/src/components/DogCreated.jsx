@@ -3,10 +3,35 @@ import { Link, useHistory } from "react-router-dom";
 import {postDog, getTemperament, getDog} from '../actions/index'
 import { useDispatch, useSelector } from "react-redux";
 
+///VALIDATION///
+const validate = (input) => {
+  let errors = {};
+  if (!input.name) {
+    errors.name = "Name is required"
+  }
+ if (!input.height){
+    errors.height = "Height is required"
+  }
+  if (typeof input.height !== "number" ){
+    errors.height = "Height must be a number."  
+  }
+  if (!input.weight){
+    errors.weight = "Weight is required"
+  }
+  if (typeof input.weight !== "number" ){
+    errors.weight = "Weight must be a number."  
+  };
+
+  return errors;
+  
+};
+///VALIDATION///
+
 export default function DogCreate (){
   const dispatch = useDispatch()
   const history = useHistory()
   const temperament = useSelector((state) => state.temperament)
+  const [errors, setErros] = useState({})
 
   const [input, setInput] = useState({
     name: "",
@@ -25,6 +50,11 @@ const handleChange = (e) => {
     ...input,
     [e.target.name] : e.target.value // cargamos los name="" de cada input
   })
+
+  setErros(validate({
+    ...input,
+    [e.target.name]: e.target.value
+  }))
   console.log(input)
 };
 
@@ -64,19 +94,31 @@ setInput({ // seteo nuevamente mi estado a 0
               value={input.name}
               name="name"
               onChange={handleChange}// se puede ejecutar el handle de esta manera tmb.
-              /></div>
+              />
+              {errors.name && (
+                <p className="error">{errors.name}</p>
+              )}
+              </div>
                           <div><label>Max Height: </label><input
               type="text"
               value={input.height}
               name="height"   
               onChange={(e) => handleChange(e)}           
-              /></div>
+              />
+              {errors.height && (
+                <p className="error">{errors.height}</p>
+              )}
+              </div>
                           <div><label>Max Weight: </label><input
               type="text"
               value={input.weight}
               name="weight"
               onChange={handleChange}
-              /></div>
+              />
+              {errors.weight && (
+                <p className="error">{errors.weight}</p>
+              )}
+              </div>
                            <div><label>Longevity: </label><input 
               type="text"
               value={input.years}
@@ -91,7 +133,7 @@ setInput({ // seteo nuevamente mi estado a 0
               /></div>
                             <select onChange={(e) => handleSelect(e)}>
                 {temperament.map((temp) => (
-                  <option value={temp.name}>{temp.name}</option>
+                <option value={temp.name}>{temp.name}</option>
                 ))}
               </select>
               <ul><li>{input.temperament.map((el) => el + ", ")}</li></ul>
