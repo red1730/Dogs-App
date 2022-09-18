@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Link, useHistory } from "react-router-dom";
 import {postDog, getTemperament, getDog} from '../actions/index'
 import { useDispatch, useSelector } from "react-redux";
+import "./styles/dogcreated.css"
 
 ///VALIDATION///
 const validate = (input) => {
@@ -12,18 +13,16 @@ const validate = (input) => {
  if (!input.height){
     errors.height = "Height is required"
   }
-  if (typeof input.height !== "number" ){
+  if (isNaN(input.height)){
     errors.height = "Height must be a number."  
   }
   if (!input.weight){
     errors.weight = "Weight is required"
   }
-  if (typeof input.weight !== "number" ){
+  if (isNaN(input.weight)){
     errors.weight = "Weight must be a number."  
   };
-
-  return errors;
-  
+          return errors;  
 };
 ///VALIDATION///
 
@@ -84,12 +83,13 @@ setInput({ // seteo nuevamente mi estado a 0
 
 
   return(
-    <div>
+    <div className="form_total">
         <Link to= '/home'><button>Back</button></Link>
         <h1>Create your Dog!</h1>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <div>
-                              <label>Name: </label><input
+              <input
+              placeholder="Name"
               type= "text"
               value={input.name}
               name="name"
@@ -99,7 +99,8 @@ setInput({ // seteo nuevamente mi estado a 0
                 <p className="error">{errors.name}</p>
               )}
               </div>
-                          <div><label>Max Height: </label><input
+                          <div><input
+              placeholder= "Max Height"
               type="text"
               value={input.height}
               name="height"   
@@ -109,7 +110,8 @@ setInput({ // seteo nuevamente mi estado a 0
                 <p className="error">{errors.height}</p>
               )}
               </div>
-                          <div><label>Max Weight: </label><input
+                          <div><input
+              placeholder="Max Weight"
               type="text"
               value={input.weight}
               name="weight"
@@ -119,25 +121,28 @@ setInput({ // seteo nuevamente mi estado a 0
                 <p className="error">{errors.weight}</p>
               )}
               </div>
-                           <div><label>Longevity: </label><input 
+                           <div><input 
+              placeholder="Longevity"
               type="text"
               value={input.years}
               name= "years"
               onChange={handleChange}
               /></div>
-                   <div><label>Image: </label><input 
+                   <div><input 
+              placeholder="Image url"
               type="text"
               value={input.image}
               name= "image"
               onChange={handleChange}
               /></div>
-                            <select onChange={(e) => handleSelect(e)}>
+                            <select className="selectcreated" onChange={(e) => handleSelect(e)}>
                 {temperament.map((temp) => (
                 <option value={temp.name}>{temp.name}</option>
                 ))}
               </select>
-              <ul><li>{input.temperament.map((el) => el + ", ")}</li></ul>
-                    <button type="submit">Create</button>      
+              <ul><li className="list">{input.temperament.map((el) => el + ", ")}</li></ul>
+                    
+                    <button type="submit" className="buttoncreate">Create</button>      
         </form>
 
     </div>
