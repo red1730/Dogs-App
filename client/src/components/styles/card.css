@@ -1,4 +1,5 @@
 .card {
+  color: black;
   font-size: 18px;
   background-color: rgb(187, 187, 187);
   padding: 10px;
@@ -10,7 +11,12 @@
   flex-direction: column;
   justify-content: space-around;
   border: 0.5px  solid white;
-
-
- direction:'row'
+  height: 400px;
+  max-width: 300px;
+    margin:0 auto;
+    vertical-align: top;
+  
+}
+.card:hover {
+  border:0.5px solid black;
 }

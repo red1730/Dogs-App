@@ -98,7 +98,7 @@ Reload Races
 
     {currentDogs?.map((c) => {
       return(
-        <div className= 'cards'>
+        <div className= 'card'>
           <Link to={"/home/" + c.id}>
             <Card 
               name={c.name}
@@ -119,7 +119,6 @@ Reload Races
     allDogs= {allDogs?.length}
     paginado= {paginado}
     />
-{/* <h6 className="signature">made with ❤ by RED.</h6> */}
   </div>
   )
 }

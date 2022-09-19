@@ -48,7 +48,10 @@
 }
 
 .list {
-  flex-direction: column;
+  flex-direction:row;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
   font-family:'Roboto', sans-serif;
   background-color: white;
   display: block;

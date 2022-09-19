@@ -55,6 +55,34 @@ router.get("/dogs", async (req,res) => {
      res.status(200).send(dogsTotal)
     }
 });
+/////promesa
+// router.get("/dogs", (req,res) => {
+//     const PromisifiedGetAllDocs = () => {
+//         const name = req.query.name
+//         let dogsTotal = getAllDogs().then({  
+//             if (name) {
+//                 let dogName = dogsTotal.filter(n => {
+//                     n.name.toLowerCase().includes(name.toLowerCase()).then ( el => dogName = el)
+
+//                     dogName.length ?
+//     res.status(200).send(dogName) :
+//     res.status(404).send(`Lo sentimos, ${name}, no se encontro.`)
+//     } else {
+//      res.status(200).send(dogsTotal)
+//     }
+//                 }).then({
+//                     (el) => { dogname = el;
+// °                   })
+                                                                                                          
+//             }
+
+//         })
+
+//         return Promise()
+//     }
+// });
+
+///promesas
 
 router.get("/temperament", async (req, res) => {
     const allData = await axios.get('https://api.thedogapi.com/v1/breeds');        
