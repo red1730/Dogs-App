@@ -56,31 +56,7 @@ router.get("/dogs", async (req,res) => {
     }
 });
 /////promesa
-// router.get("/dogs", (req,res) => {
-//     const PromisifiedGetAllDocs = () => {
-//         const name = req.query.name
-//         let dogsTotal = getAllDogs().then({  
-//             if (name) {
-//                 let dogName = dogsTotal.filter(n => {
-//                     n.name.toLowerCase().includes(name.toLowerCase()).then ( el => dogName = el)
 
-//                     dogName.length ?
-//     res.status(200).send(dogName) :
-//     res.status(404).send(`Lo sentimos, ${name}, no se encontro.`)
-//     } else {
-//      res.status(200).send(dogsTotal)
-//     }
-//                 }).then({
-//                     (el) => { dogname = el;
-// °                   })
-                                                                                                          
-//             }
-
-//         })
-
-//         return Promise()
-//     }
-// });
 
 ///promesas
 
@@ -99,7 +75,7 @@ router.get("/temperament", async (req, res) => {
     res.send(allTemperaments)       
 });
 
-router.post('/dogs',async (req,res)=>{  
+router.post('/dogs',async (req, res)=>{  
     console.log(JSON.stringify(req.body)) 
         let {
             name,
@@ -125,14 +101,16 @@ dogCreated.addTemp(temperamentDb)
 res.send('La raza fue creada con Exito')  
 });
 
-router.get('/dogs/:id' , async (req,res) => {
-const id = req.params.id 
+router.get('/:id', async (req, res) => {
+const Id = req.params.id
+
 const dogsTotal = await getAllDogs()
-if (id){
-    let dogId = await dogsTotal.filter(el => el.id === id)
+if (Id){
+    let dogId = await dogsTotal.filter((el) => el.id === parseInt(Id))
+    console.log(Id)
     dogId.length ?
     res.status(200).json(dogId) :
-    res.status(404).send ('No se encontro esa raza')
+    res.status(404).send ('No se encontro esa raza wachin')
 }
 });
 module.exports = router;
