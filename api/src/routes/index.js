@@ -101,15 +101,15 @@ dogCreated.addTemp(temperamentDb)
 res.send('La raza fue creada con Exito')  
 });
 
-router.get('/:id', async (req, res) => {
-const Id = req.params.id
+router.get('/dogs/:id', async (req, res) => {
+const id = req.params.id
 
 const dogsTotal = await getAllDogs()
-if (Id){
-    let dogId = await dogsTotal.filter((el) => el.id === parseInt(Id))
-    console.log(Id)
-    dogId.length ?
-    res.status(200).json(dogId) :
+if (id){
+    let dogid = await dogsTotal.filter((el) => el.id === parseInt(id))
+    console.log(id)
+    dogid.length ?
+    res.status(200).json(dogid) :
     res.status(404).send ('No se encontro esa raza wachin')
 }
 });

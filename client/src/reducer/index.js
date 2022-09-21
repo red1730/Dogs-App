@@ -24,19 +24,19 @@ function rootReducer (state = initialState, action){
       return {
         ...state,
         temperament: action.payload
-      }
+      };
 
     case 'GET_DOG_BY_NAME':
       return{
         ...state,
-        dogs: action.payload,
+        dogs: action.payload
       };
+
       case 'GET_DETAIL':
         return {
           ...state,
           detail: action.payload
-
-        }
+       };
      
     case 'FILTER_CREATED':   
           const createdFilter = action.payload === 'Created' ? state.allDogs.filter((el) => el.createInDb) : state.allDogs.filter((el) => !el.createInDb) 

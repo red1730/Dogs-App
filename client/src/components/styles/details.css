@@ -1,0 +1,31 @@
+.details {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ } 
+
+.image {
+position: relative;
+  
+}
+.info {
+text-align: center;
+font-size: 1.3rem;
+position: relative;
+line-height: 10px;
+background-color: rgb(187, 187, 187);
+padding-top: 2%;
+padding-bottom: 5%;
+max-width: 650px;
+
+ 
+
+}
+.buttonBack {
+background-color: red;
+border-radius: 15px;
+display: flexbox;
+position: relative;
+
+}

@@ -67,7 +67,7 @@ export function orderByWeight(payload){
 export function getDetail (id){
   return async function(dispatch){
     try{
-      var json = await axios("http://localhost:3001/dogs"+ id)
+      var json = await axios("http://localhost:3001/dogs/"+id)
 return dispatch({
     type: 'GET_DETAIL',
     payload: json.data
@@ -78,3 +78,15 @@ return dispatch({
   }
 };
 
+// Promise:
+// export function getDetail(id){
+//     return function (dispatch){
+//         var json = axios.get('http://localhost:3001/dogs/' + id)
+//             .then(res => res.data)
+//             .catch(err => console.log(err));
+//         return dispatch({
+//             type: GET_DETAIL,
+//             payload: json,
+//         })
+//     }
+// }

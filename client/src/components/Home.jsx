@@ -95,30 +95,28 @@ Reload Races
     allDogs= {allDogs?.length}
     paginado= {paginado}
     />
+             {currentDogs?.map((dog) => {
+                  return(
+                   <div  key= {dog.id} className= 'card'>
+                    <Link to={`/dogs/${dog.id}`}>
+                     <Card 
+                      name={dog.name}
+                      image={dog.image}
+                      weight={dog.weight}
+                      temperament={dog.createInDb ? dog.temps.map( t => t.name + ' ') : dog.temperament}
+                       />
+                    </Link>                                                             
+                   </div>
+          ) 
 
-    {currentDogs?.map((c) => {
-      return(
-        <div className= 'card'>
-          <Link to={"/home/" + c.id}>
-            <Card 
-              name={c.name}
-              image={c.image? c.image : <img  alt="img"  src="https://www.infobae.com/new-resizer/L2RD4MJtKJPWIRMpQ-qwEfV07k8=/768x768/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/BLZJHTB27ZHUPKK3A7GXTMIEQA.jpg"/>}
-              weight={c.weight}
-              temperament={c.temperament}
-              />
-          </Link>
-
-          
-        </div>
-       )
-     })
+        })
     }
-    </div>
+     </div>
      <Paginado
-    dogsPerPage={dogsPerPage}
-    allDogs= {allDogs?.length}
-    paginado= {paginado}
-    />
+      dogsPerPage={dogsPerPage}
+      allDogs= {allDogs?.length}
+      paginado= {paginado}
+      />
   </div>
   )
-}
+};

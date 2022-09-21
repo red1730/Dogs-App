@@ -111,12 +111,12 @@ __Pagina inicial__: deben armar una landing page con
 __Ruta principal__: debe contener
 
 - [x] Input de búsqueda para encontrar razas de perros por nombre
-- [ ] Área donde se verá el listado de razas de perros. Deberá mostrar su:
+- [X] Área donde se verá el listado de razas de perros. Deberá mostrar su:
   - Imagen
   - Nombre
   - Temperamento
   - Peso
-- [ ] Botones/Opciones para filtrar por:
+- [x] Botones/Opciones para filtrar por:
   - Temperamento
   - Raza existente (es decir las que vienen de la API) o agregada por nosotros (creadas mediante el form)
 - [x] Botones/Opciones para ordenar tanto ascendentemente como descendentemente las razas de perro por:
