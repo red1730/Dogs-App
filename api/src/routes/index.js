@@ -106,7 +106,7 @@ const id = req.params.id
 
 const dogsTotal = await getAllDogs()
 if (id){
-    let dogid = await dogsTotal.filter((el) => el.id === parseInt(id))
+    let dogid = await dogsTotal.filter((el) => el.id == id)
     console.log(id)
     dogid.length ?
     res.status(200).json(dogid) :

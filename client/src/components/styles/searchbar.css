@@ -29,3 +29,9 @@
       .buttonsearch:active {
         background-color: black;
       }
+.filters{
+  font-size: 0.8em;
+  background-color: white;
+  border-radius: 0.5em;
+  color: red;
+}

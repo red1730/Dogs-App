@@ -6,14 +6,20 @@
 }
 
 .number {
-  font-family:'Courier New',  monospace;
-  border: 0.2px solid ;
-  background-color: transparent;
-  transition-duration: 0.8s;
+ font-family:'Courier New',  monospace;
+background: rgba(255, 255, 255, 0.48);
+border-radius: 2px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.1px);
+-webkit-backdrop-filter: blur(7.1px);
+border: 1px solid rgba(255, 255, 255, 0.27);
+transition-duration: 0.3s;
 
 }
 .number:hover {
-  background-color:#ffffff;
+  background-color:black;
+  transform: translateY(-7px);
+  color: white;
 }
 .number:active {
   background-color: black;

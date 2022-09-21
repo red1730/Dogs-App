@@ -1,22 +1,32 @@
 .card {
-  color: black;
-  font-size: 18px;
-  background-color: rgb(187, 187, 187);
+  font-family:'Roboto', sans-serif;
+  color: rgb(53, 53, 53);
+  font-size: 16px;
   padding: 10px;
   float: left;
   flex-wrap: wrap;
   display: flow-root;
   text-align: center;
-  font-family:'Courier New',  monospace;
   flex-direction: column;
   justify-content: space-around;
-  border: 0.5px  solid white;
   height: 400px;
-  max-width: 300px;
-    margin:0 auto;
-    vertical-align: top;
-  
+  max-width: 250px; 
+  vertical-align: top;
+  margin: 5px;
+
+background: rgba(255, 255, 255, 0.48);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.1px);
+-webkit-backdrop-filter: blur(7.1px);
+border: 1px solid rgba(255, 255, 255, 0.27);
+transition-duration: 0.5s;
 }
 .card:hover {
-  border:0.5px solid black;
+  border:1.5px solid white;
+  transform: translateY(-7px);
+  background-color:  rgba(255, 255, 255);
+}
+image {
+  border-radius: 15px;
 }

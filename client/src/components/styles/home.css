@@ -1,3 +1,14 @@
+.container {
+  display: flex;
+  -webkit-box-pack: center;
+  place-content: center;
+  align-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
 .home {
   /* background-color: rgb(187, 187, 187); */
   font-family:'Times New Roman', Times, serif;
@@ -44,6 +55,7 @@
   transition-duration: 1s;
 
 }
-.signature:hover{
-  color: red;
+.titulo{
+  font-size: 5rem;
+  padding: 0%;
 }

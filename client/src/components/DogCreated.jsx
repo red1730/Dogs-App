@@ -7,19 +7,19 @@ import "./styles/dogcreated.css"
 ///VALIDATION///
 const validate = (input) => {
   let errors = {};
-  if (!input.name) {
+  if (!input.name) { // letras con espacio ^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$
     errors.name = "Name is required"
   }
  if (!input.height){
-    errors.height = "Height is required"
+    errors.height = "Height is required" //numeros enteros positivos y negativos /^-?\d*(\.\d+)?$/
   }
-  if (isNaN(input.height)){
+  if (!/^-?\d*(\.\d+)?$/.test(input.height) ){ //isNaN(input.height)
     errors.height = "Height must be a number."  
   }
-  if (!input.weight){
+  if (!input.weight ){
     errors.weight = "Weight is required"
   }
-  if (isNaN(input.weight)){
+  if (!/^-?\d*(\.\d+)?$/.test(input.weight)){
     errors.weight = "Weight must be a number."  
   };
           return errors;  
@@ -30,7 +30,7 @@ export default function DogCreate (){
   const dispatch = useDispatch()
   const history = useHistory()
   const temperament = useSelector((state) => state.temperament)
-  const [errors, setErros] = useState({})
+  const [errors, setErrors] = useState({})
 
   const [input, setInput] = useState({
     name: "",
@@ -50,7 +50,7 @@ const handleChange = (e) => {
     [e.target.name] : e.target.value // cargamos los name="" de cada input
   })
 
-  setErros(validate({
+  setErrors(validate({
     ...input,
     [e.target.name]: e.target.value
   }))
@@ -142,7 +142,7 @@ setInput({ // seteo nuevamente mi estado a 0
               </select>
               <ul><li className="list">{input.temperament.map((el) => el + ", ")}</li></ul>
                     
-                    <button type="submit" className="buttoncreate">Create</button>      
+              if(!Errors) {     <button type="submit" className="buttoncreate">Create</button> }     
         </form>
 
     </div>
