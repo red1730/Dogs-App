@@ -7,11 +7,11 @@ import "./styles/dogcreated.css"
 ///VALIDATION///
 const validate = (input) => {
   let errors = {};
-  if (!input.name) { // letras con espacio ^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$
+  if (!input.name) { // letras con espacio
     errors.name = "Name is required"
   }
  if (!input.height){
-    errors.height = "Height is required" //numeros enteros positivos y negativos /^-?\d*(\.\d+)?$/
+    errors.height = "Height is required" //numeros enteros positivos  /^-?\d*(\.\d+)?$/
   }
   if (!/^-?\d*(\.\d+)?$/.test(input.height) ){ //isNaN(input.height)
     errors.height = "Height must be a number."  
@@ -66,7 +66,8 @@ setInput ({
 
 const handleSubmit = (e) => {
 e.preventDefault();
-console.log(input)
+if (!errors){alert("hay algun dato que no va")
+}else{
 dispatch(postDog(input))
 alert("Dog successfully created!!")
 setInput({ // seteo nuevamente mi estado a 0
@@ -78,7 +79,7 @@ setInput({ // seteo nuevamente mi estado a 0
     temperament: []
  })
  history.push('/home') // una vez creado, redirecciona
-};
+}};
 
 
 
@@ -142,7 +143,7 @@ setInput({ // seteo nuevamente mi estado a 0
               </select>
               <ul><li className="list">{input.temperament.map((el) => el + ", ")}</li></ul>
                     
-              if(!Errors) {     <button type="submit" className="buttoncreate">Create</button> }     
+                <button type="submit" className="buttoncreate">Create</button>   
         </form>
 
     </div>

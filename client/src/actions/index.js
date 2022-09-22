@@ -50,6 +50,13 @@ export function filterCreated(payload){
   }
 };
 
+export function filterDogsByTemperament(payload) {
+  return {
+      type: 'FILTER_BY_TEMPERAMENT',
+      payload
+  }
+}
+
 export function orderByName(payload){
   return {
     type: 'ORDER_BY_NAME',  

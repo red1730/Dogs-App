@@ -32,10 +32,10 @@ return (
                 </div>
                 <div className="info">
                 <h1>{myDog[0].name}</h1>
-                <h5>Weight: {myDog[0].weight}</h5>
-                <h5>Height: {myDog[0].height}</h5>
-                <h5>Longevity: {myDog[0].years}</h5>
-                <h5>Temperament: {myDog[0].createInDb ? myDog[0].temps.map( t => t.name + ' ') : myDog[0].temperament }</h5>
+                <h5>Weight: {myDog[0].weight} Kgs.</h5>
+                <h5>Height: {myDog[0].height} cm.</h5>
+                <h5>Longevity: {myDog[0].years}.</h5>
+                <h5>Temperament: {myDog[0].createInDb ? myDog[0].temps.map( t => t.name + ' ') : myDog[0].temperament }.</h5>
                 </div>
 
             </div> : <p>Loading...</p>

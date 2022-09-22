@@ -37,6 +37,21 @@ function rootReducer (state = initialState, action){
           ...state,
           detail: action.payload
        };
+
+       case 'FILTER_BY_TEMPERAMENT':
+        const allDogs = state.allDogs; 
+        const temperamentFiltered = action.payload === 'All' ? allDogs : allDogs.filter(el => {
+            if (typeof (el.temperament) === 'string') return el.temperament.includes(action.payload);
+            if (Array.isArray(el.temperament)) {
+                let temps = el.temperament.map(el => el.name);
+                return temps.includes(action.payload);
+            }
+            return true;
+        });
+        return {
+            ...state,
+            dogs: temperamentFiltered
+        }
      
     case 'FILTER_CREATED':   
           const createdFilter = action.payload === 'Created' ? state.allDogs.filter((el) => el.createInDb) : state.allDogs.filter((el) => !el.createInDb) 

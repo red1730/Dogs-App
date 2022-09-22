@@ -6,6 +6,7 @@ import {
   getDog,
   orderByName,
   orderByWeight,
+  filterDogsByTemperament,
   getTemperament,
 } from "../actions";
 import { Link } from "react-router-dom";
@@ -17,9 +18,11 @@ import "./styles/card.css";
 
 export default function Home() {
   const temperament = useSelector((state) => state.temperament);
-
-  const dispatch = useDispatch();
+  
+  
   const allDogs = useSelector((state) => state.dogs);
+  const dispatch = useDispatch();
+  
   const [orden, setOrden] = useState("");
   const [currentPage, setCurrentPage] = useState(1); // pagina actual
   const [dogsPerPage] = useState(8); // personajes x pag
@@ -62,6 +65,14 @@ export default function Home() {
     setOrden(`Order ${e.target.value}`);
   };
 
+  
+  function handleFilterTemperaments(e) {
+    e.preventDefault();
+    setCurrentPage(1);
+    dispatch(filterDogsByTemperament(e.target.value))
+}
+
+
   return (
     <div className="home">
       <Link to="/dogcreated">Create Race</Link>
@@ -85,10 +96,17 @@ export default function Home() {
           <option value="Existing">Existing</option>
           <option value="Created">Created</option>
         </select>
-        <select>
-          {temperament.map((temp) => (
-            <option value={temp.name}>{temp.name}</option>
-          ))}
+        <select onChange={e => handleFilterTemperaments(e)}  >
+                            <option key={0} value='All'>All temperaments</option>
+                            {temperament?.sort(function (a, b) {
+                                if (a.name < b.name) return -1;
+                                if (a.name > b.name) return 1;
+                                return 0;
+                            }).map(el => {
+                                return (
+                                    <option key={el.id} value={el.name}>{el.name}</option>
+                                )
+                            })}
         </select>
 
         <Paginado
