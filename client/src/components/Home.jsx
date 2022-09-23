@@ -17,8 +17,8 @@ import "./styles/home.css";
 import "./styles/card.css";
 
 export default function Home() {
-  const temperament = useSelector((state) => state.temperament);
-  
+
+  const temperament = useSelector((state) => state.temperament);  
   
   const allDogs = useSelector((state) => state.dogs);
   const dispatch = useDispatch();
@@ -64,13 +64,12 @@ export default function Home() {
     setCurrentPage(1);
     setOrden(`Order ${e.target.value}`);
   };
-
   
   function handleFilterTemperaments(e) {
     e.preventDefault();
     setCurrentPage(1);
     dispatch(filterDogsByTemperament(e.target.value))
-}
+};
 
 
   return (
@@ -97,7 +96,7 @@ export default function Home() {
           <option value="Created">Created</option>
         </select>
         <select onChange={e => handleFilterTemperaments(e)}  >
-                            <option key={0} value='All'>All temperaments</option>
+                            <option value='All'>All temperaments</option>
                             {temperament?.sort(function (a, b) {
                                 if (a.name < b.name) return -1;
                                 if (a.name > b.name) return 1;
@@ -120,6 +119,7 @@ export default function Home() {
               <div key={dog.id} >
                 <Link to={`/dogs/${dog.id}`}>
                   <Card
+                  key={dog.id}
                     name={dog.name}
                     image={dog.image}
                     weight={dog.weight}

@@ -42,9 +42,9 @@ function rootReducer (state = initialState, action){
         const allDogs = state.allDogs; 
         const temperamentFiltered = action.payload === 'All' ? allDogs : allDogs.filter(el => {
             if (typeof (el.temperament) === 'string') return el.temperament.includes(action.payload);
-            if (Array.isArray(el.temperament)) {
-                let temps = el.temperament.map(el => el.name);
-                return temps.includes(action.payload);
+            if (Array.isArray(el.temps)) {
+                let temperamentss = el.temps.map(el => el.name);
+                return temperamentss.includes(action.payload);
             }
             return true;
         });

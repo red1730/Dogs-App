@@ -24,13 +24,26 @@ const validate = (input) => {
   };
           return errors;  
 };
-///VALIDATION///
+
+
+///VALIDATION/localucflujograma uml
+
 
 export default function DogCreate (){
   const dispatch = useDispatch()
   const history = useHistory()
-  const temperament = useSelector((state) => state.temperament)
+  const temperament = useSelector((state) => state.temperament).sort(function (a, b) {
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
+  })
+
   const [errors, setErrors] = useState({})
+
+let condicionalButton ;
+if (errors.name || errors.height || errors.weight){
+  condicionalButton = <button type="submit" className="buttoncreate">Create</button>
+};
 
   const [input, setInput] = useState({
     name: "",
@@ -141,9 +154,9 @@ setInput({ // seteo nuevamente mi estado a 0
                 <option value={temp.name}>{temp.name}</option>
                 ))}
               </select>
-              <ul><li className="list">{input.temperament.map((el) => el + ", ")}</li></ul>
-                    
-                <button type="submit" className="buttoncreate">Create</button>   
+              <ul><li className="list" key={"id"}>{input.temperament.map((el) => el + ", ")}</li></ul>
+                 {condicionalButton}   
+                {/* <button type="submit" className="buttoncreate">Create</button>    */}
         </form>
 
     </div>
