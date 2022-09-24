@@ -22,5 +22,6 @@ transition-duration: 0.3s;
   color: white;
 }
 .number:active {
-  background-color: black;
+  background-color: black !important;
+  color: red;
 }

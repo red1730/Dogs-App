@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from "react";
 import { Link, useHistory } from "react-router-dom";
-import {postDog, getTemperament, getDog} from '../actions/index'
+import {postDog, getTemperament} from '../actions/index'
 import { useDispatch, useSelector } from "react-redux";
 import "./styles/dogcreated.css"
 
 ///VALIDATION///
 const validate = (input) => {
   let errors = {};
-  if (!input.name) { // letras con espacio
+  if (!/^[a-z ,A-Z.'-]+$/.test(input.name)) { // letras con espacio
     errors.name = "Name is required"
   }
  if (!input.height){
-    errors.height = "Height is required" //numeros enteros positivos  /^-?\d*(\.\d+)?$/
+    errors.height = "Height is required" //meros enteros positivos  /^-?\d*(\.\d+)?$/
   }
   if (!/^-?\d*(\.\d+)?$/.test(input.height) ){ //isNaN(input.height)
     errors.height = "Height must be a number."  
@@ -26,9 +26,7 @@ const validate = (input) => {
 };
 
 
-///VALIDATION/localucflujograma uml
-
-
+///VALIDATION/
 export default function DogCreate (){
   const dispatch = useDispatch()
   const history = useHistory()
@@ -39,11 +37,7 @@ export default function DogCreate (){
   })
 
   const [errors, setErrors] = useState({})
-
-let condicionalButton ;
-if (errors.name || errors.height || errors.weight){
-  condicionalButton = <button type="submit" className="buttoncreate">Create</button>
-};
+console.log(errors)
 
   const [input, setInput] = useState({
     name: "",
@@ -56,7 +50,7 @@ if (errors.name || errors.height || errors.weight){
   useEffect(() => {
     dispatch(getTemperament());
   }, [dispatch])
- 
+ console.log(input)
 const handleChange = (e) => {
   setInput ({
     ...input,
@@ -67,8 +61,7 @@ const handleChange = (e) => {
     ...input,
     [e.target.name]: e.target.value
   }))
-  console.log(input)
-};
+ };
 
 const handleSelect = (e) => {
 setInput ({
@@ -79,10 +72,11 @@ setInput ({
 
 const handleSubmit = (e) => {
 e.preventDefault();
-if (!errors){alert("hay algun dato que no va")
+if (errors.name || errors.weight || errors.height || !input.name || !input.weight || !input.height ){alert("Something is wrong ⛔")
 }else{
 dispatch(postDog(input))
-alert("Dog successfully created!!")
+alert("Dog successfully created!!🐶")
+
 setInput({ // seteo nuevamente mi estado a 0
   name: "",
     height: "",
@@ -98,7 +92,7 @@ setInput({ // seteo nuevamente mi estado a 0
 
   return(
     <div className="form_total">
-        <Link to= '/home'><button>Back</button></Link>
+        <Link to= '/home'><button className="buttonBack">Back</button></Link>
         <h1>Create your Dog!</h1>
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <div>
@@ -107,7 +101,7 @@ setInput({ // seteo nuevamente mi estado a 0
               type= "text"
               value={input.name}
               name="name"
-              onChange={handleChange}// se puede ejecutar el handle de esta manera tmb.
+              onChange={(e) => handleChange(e)}
               />
               {errors.name && (
                 <p className="error">{errors.name}</p>
@@ -129,7 +123,7 @@ setInput({ // seteo nuevamente mi estado a 0
               type="text"
               value={input.weight}
               name="weight"
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
               />
               {errors.weight && (
                 <p className="error">{errors.weight}</p>
@@ -140,23 +134,22 @@ setInput({ // seteo nuevamente mi estado a 0
               type="text"
               value={input.years}
               name= "years"
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
               /></div>
                    <div><input 
               placeholder="Image url"
               type="text"
               value={input.image}
               name= "image"
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
               /></div>
                             <select className="selectcreated" onChange={(e) => handleSelect(e)}>
                 {temperament.map((temp) => (
                 <option value={temp.name}>{temp.name}</option>
                 ))}
               </select>
-              <ul><li className="list" key={"id"}>{input.temperament.map((el) => el + ", ")}</li></ul>
-                 {condicionalButton}   
-                {/* <button type="submit" className="buttoncreate">Create</button>    */}
+              <ul><li className="list" >{input.temperament.map((el) => el + ", ")}</li></ul>
+                <button type="submit" className="buttoncreate">Create</button>   
         </form>
 
     </div>

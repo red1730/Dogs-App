@@ -9,7 +9,7 @@ return (
         <h1>dogs.</h1>
           </div>
             <div className='subtitle'>
-              <h1>my bestie, your bestie.</h1>
+              <h1>your bestie, my bestie.</h1>
             </div>
           <div>
            <Link to= '/home'>

@@ -135,7 +135,7 @@ __Ruta de detalle de raza de perro__: debe contener
 
 __Ruta de creación de raza de perro__: debe contener
 
-- [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
+- [X] Un formulario __controlado con JavaScript__ con los siguientes campos:
   - Nombre
   - Altura (Diferenciar entre altura mínima y máxima)
   - Peso (Diferenciar entre peso mínimo y máximo)

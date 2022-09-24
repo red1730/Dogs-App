@@ -22,9 +22,6 @@ return (
         {
             myDog.length > 0 ?
             <div>
-        <Link to= "/home">
-        <button className="buttonBack">Back</button>    
-        </Link>   
 
                 <div className="image">
                 <img src={myDog[0].image} alt= "not found" width="650px" height="450px" />
@@ -36,6 +33,9 @@ return (
                 <h5>Height: {myDog[0].height} cm.</h5>
                 <h5>Longevity: {myDog[0].years}.</h5>
                 <h5>Temperament: {myDog[0].createInDb ? myDog[0].temps.map( t => t.name + ' ') : myDog[0].temperament }.</h5>
+        <Link to= "/home">
+        <button className="buttonBack">Back</button>    
+        </Link>   
                 </div>
 
             </div> : <p>Loading...</p>

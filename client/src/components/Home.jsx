@@ -17,12 +17,11 @@ import "./styles/home.css";
 import "./styles/card.css";
 
 export default function Home() {
+  const temperament = useSelector((state) => state.temperament);
 
-  const temperament = useSelector((state) => state.temperament);  
-  
   const allDogs = useSelector((state) => state.dogs);
   const dispatch = useDispatch();
-  
+
   const [orden, setOrden] = useState("");
   const [currentPage, setCurrentPage] = useState(1); // pagina actual
   const [dogsPerPage] = useState(8); // personajes x pag
@@ -36,11 +35,11 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getDog());
-  },[dispatch]);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getTemperament());
-  },[dispatch]);
+  }, [dispatch]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -64,82 +63,97 @@ export default function Home() {
     setCurrentPage(1);
     setOrden(`Order ${e.target.value}`);
   };
-  
+
   function handleFilterTemperaments(e) {
     e.preventDefault();
     setCurrentPage(1);
-    dispatch(filterDogsByTemperament(e.target.value))
-};
-
+    dispatch(filterDogsByTemperament(e.target.value));
+  }
 
   return (
-    <div className="home">
-      <Link to="/dogcreated">Create Race</Link>
-      <h1 className="titulo">Dogs.</h1>
-      <button className="reload" onClick={(e) => handleClick(e)}>
-        Reload Races
-      </button>
+    <div>
       <div>
-        <SearchBar className="filters" />
-        <select onChange={(e) => handleSort(e)}>
-          <option value="asc">A-Z</option>
-          <option value="dsc">Z-A</option>
-        </select>
-        <select onChange={(e) => handleWeight(e)}>
-          <option>Weigth</option>
-          <option value="wasc">Ascending Weight</option>
-          <option value="wdsc">Descending Weight</option>
-        </select>
-        <select onChange={(e) => handleFilterCreated(e)}>
-          <option value="All">All</option>
-          <option value="Existing">Existing</option>
-          <option value="Created">Created</option>
-        </select>
-        <select onChange={e => handleFilterTemperaments(e)}  >
-                            <option value='All'>All temperaments</option>
-                            {temperament?.sort(function (a, b) {
-                                if (a.name < b.name) return -1;
-                                if (a.name > b.name) return 1;
-                                return 0;
-                            }).map(el => {
-                                return (
-                                    <option key={el.id} value={el.name}>{el.name}</option>
-                                )
-                            })}
-        </select>
+        <Link className="topBar" to="/dogcreated">
+          Create Race
+        </Link>
+      </div>
+      <div className="home">
+        <h1 className="titulo">Dogs.</h1>
+        <button className="reload" onClick={(e) => handleClick(e)}>
+          Reload Races
+        </button>
+        <div>
+          <SearchBar className="filters" />
+          <select className="filters_select" onChange={(e) => handleSort(e)}>
+            <option value="asc">A-Z</option>
+            <option value="dsc">Z-A</option>
+          </select>
+          <select className="filters_select" onChange={(e) => handleWeight(e)}>
+            <option>Weigth</option>
+            <option value="wasc">Ascending Weight</option>
+            <option value="wdsc">Descending Weight</option>
+          </select>
+          <select
+            className="filters_select"
+            onChange={(e) => handleFilterCreated(e)}
+          >
+            <option value="All">All</option>
+            <option value="Existing">Existing</option>
+            <option value="Created">Created</option>
+          </select>
+          <select
+            className="filters_select"
+            onChange={(e) => handleFilterTemperaments(e)}
+          >
+            <option value="All">All temperaments</option>
+            {temperament
+              ?.sort(function (a, b) {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+              })
+              .map((el) => {
+                return (
+                  <option key={el.id} value={el.name}>
+                    {el.name}
+                  </option>
+                );
+              })}
+          </select>
 
+          <Paginado
+            dogsPerPage={dogsPerPage}
+            allDogs={allDogs?.length}
+            paginado={paginado}
+          />
+          <div className="container">
+            {currentDogs?.map((dog) => {
+              return (
+                <div key={dog.id}>
+                  <Link to={`/dogs/${dog.id}`}>
+                    <Card
+                      key={dog.id}
+                      name={dog.name}
+                      image={dog.image}
+                      weight={dog.weight}
+                      temperament={
+                        dog.createInDb
+                          ? dog.temps.map((t) => t.name + " ")
+                          : dog.temperament
+                      }
+                    />
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </div>
         <Paginado
           dogsPerPage={dogsPerPage}
           allDogs={allDogs?.length}
           paginado={paginado}
         />
-        <div className="container">
-          {currentDogs?.map((dog) => {
-            return (
-              <div key={dog.id} >
-                <Link to={`/dogs/${dog.id}`}>
-                  <Card
-                  key={dog.id}
-                    name={dog.name}
-                    image={dog.image}
-                    weight={dog.weight}
-                    temperament={
-                      dog.createInDb
-                        ? dog.temps.map((t) => t.name + " ")
-                        : dog.temperament
-                    }
-                  />
-                </Link>
-              </div>
-            );
-          })}
-        </div>
       </div>
-      <Paginado
-        dogsPerPage={dogsPerPage}
-        allDogs={allDogs?.length}
-        paginado={paginado}
-      />
     </div>
   );
-}
+};

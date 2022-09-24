@@ -1,61 +1,90 @@
 .container {
-  display: flex;
-  -webkit-box-pack: center;
-  place-content: center;
-  align-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
+display: flex;
+-webkit-box-pack: center;
+place-content: center;
+align-content: center;
+justify-content: center;
+-webkit-box-align: center;
+align-items: center;
+flex-wrap: wrap;
+width: 100%;
 }
-.home {
-  /* background-color: rgb(187, 187, 187); */
-  font-family:'Times New Roman', Times, serif;
-  font-size: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  max-height: fit-content;
-  align-items: center;
-  text-align: center;
+
+.home {  
+font-family:'Times New Roman', Times, serif;
+font-size: 20px;
+position: absolute;  
+width: 100%;
+height: 100%;
+justify-content: center;
+align-items: center;
+text-align: center;
 }
 .reload {
-  background-color: white;
-  font-family:'Roboto', sans-serif;
-  font-size: 14px;
-  padding: 5px 22px;
-  transition-duration: 1.2s;
-  /* transition: all 0.3s ease 0s; */
-  outline: none;
-  border: none;
-  border-radius: 0.5em;
-  letter-spacing: 2.5px;
-  box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px;
-  margin-bottom: 10px;
+color: white;
+background-color: black;
+font-family:'Roboto', sans-serif;
+font-size: 14px;
+padding: 5px 22px;
+transition-duration: 0.8s;
+outline: none;
+border: none;
+border-radius: 0.5em;
+letter-spacing: 2.5px;
+box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px;
+margin-bottom: 10px;
 }
 .reload:hover{
- color: red;
- cursor: pointer;
+color: red;
+cursor: pointer;
 }
+
 .reload:active {
-  background-color: black;
+background-color: black;
 }
+
 .signature {
-  font-family:'Times New Roman', Times, serif;
-  font-size: 15px;
-  display: flexbox;
-  text-align: center;
-  justify-content: center;
-  position: relative;
-  letter-spacing: 2px;
-  transition-duration: 1s;
+font-family:'Times New Roman', Times, serif;
+font-size: 15px;
+display: flexbox;
+text-align: center;
+justify-content: center;
+position: relative;
+letter-spacing: 2px;
+transition-duration: 1s;
 
 }
 .titulo{
-  font-size: 5rem;
-  padding: 0%;
+font-size: 5rem;
+padding: 0%;
+}
+
+.topBar{
+color: white;
+text-decoration: none;
+background-color: black;
+font-family:'Roboto', sans-serif;
+font-size: 14px;
+padding: 5px 22px;
+transition-duration: 1.2s;
+outline: none;
+border: none;
+border-radius: 0.5em;
+letter-spacing: 2.5px;
+box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px;
+margin-bottom: 10px;
+}
+
+.topBar:hover{
+color: red;
+cursor: pointer;
+}
+
+.topBar:active {
+background-color: white;
+ }
+
+.filters_select{
+font-size: 16px;
+border-radius: 0.2em;
 }

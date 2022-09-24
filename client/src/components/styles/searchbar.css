@@ -1,37 +1,39 @@
 .inputsearchbar {
-    font-size: 0.8em;
-  background-color: white;
-  background-image: url('./img/searchicon.png');
-  background-size: contain;
-  background-position: 1px 1px;
-  background-repeat: no-repeat;
-  padding-left: 40px;
-  border-radius: 0.5em;
+font-size: 17px;
+background-color: white;
+background-image: url('./img/searchicon.png');
+background-size: contain;
+background-position: 1px 1px;
+background-repeat: no-repeat;
+padding: 4px 22px;
+border-radius: 0.5em;
 }
 
 .buttonsearch {
-        background-color: white;
-        font-family:'Roboto', sans-serif;
-        font-size: 14px;
-        padding: 3px 22px;
-        transition-duration: 1.2s;
-        outline: none;
-        border: none;
-        border-radius: 0.5em;
-        box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px;
-        margin-bottom: 10px;
-      }
-      .buttonsearch:hover{
-       color: red;
-       cursor: pointer;
+background-color: white;
+font-family:'Roboto', sans-serif;
+font-size: 17px;
+padding: 4px 22px;
+transition-duration: 1.2s;
+outline: none;
+border: none;
+border-radius: 0.5em;
+box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px;
+margin-bottom: 10px;
+}
 
-      }
-      .buttonsearch:active {
-        background-color: black;
-      }
+.buttonsearch:hover{
+color: red;
+cursor: pointer;
+}
+
+.buttonsearch:active {
+background-color: black;
+}
+
 .filters{
-  font-size: 0.8em;
-  background-color: white;
-  border-radius: 0.5em;
-  color: red;
+font-size: 0.8em;
+background-color: white;
+border-radius: 0.5em;
+color: red;
 }
