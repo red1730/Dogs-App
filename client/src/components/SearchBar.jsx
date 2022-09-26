@@ -23,7 +23,7 @@ const handleSubmit = (e) => {
         <div>
             <input className="inputsearchbar"
             type= "text"
-            placeholder = "Search..."
+            placeholder = " Go..."
             onChange={(e) => handleInputChange(e)}
             >
             </input>

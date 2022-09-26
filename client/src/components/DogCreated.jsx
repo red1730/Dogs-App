@@ -92,7 +92,6 @@ setInput({ // seteo nuevamente mi estado a 0
 
   return(
     <div className="form_total">
-        <Link to= '/home'><button className="buttonBack">Back</button></Link>
         <h1>Create your Dog!</h1>
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <div>
@@ -150,6 +149,7 @@ setInput({ // seteo nuevamente mi estado a 0
               </select>
               <ul><li className="list" >{input.temperament.map((el) => el + ", ")}</li></ul>
                 <button type="submit" className="buttoncreate">Create</button>   
+        <Link to= '/home'><button className="buttonBackCreated">Back</button></Link>
         </form>
 
     </div>

@@ -20,7 +20,7 @@ font-size: 20px;
 display: inline-block;
 margin: -2%;
 padding-right: 10px;
-border-radius: 5px;
+
 
 }
 .form label {
@@ -35,52 +35,66 @@ width: 100%;
 padding: .5rem .8rem .5rem .8rem;
 margin: .9vw 0 ;
 border:0;
-border-radius: 5px;
 font-size: 18px;
 }
 .selectcreated{
 font-size: 20px;
 font-family:'Roboto', sans-serif;
 padding-right: 10px;
-border-radius: 5px;
+
 padding: .5rem .8rem .5rem .8rem;
 width: 100%;
 }
 
 .list {
 flex-direction:row;
-text-align: center;
+text-align: left;
 width: fit-content;
 height: fit-content;
 font-family:'Roboto', sans-serif;
 background-color: white;
 display: block;
-border-radius: 5px;
 padding: .5rem .8rem .5rem .8rem;
+min-width: 32rem;
+min-height: 1rem;
 }
 
 .buttoncreate {
-background-color: rgb(255, 0, 0);
-color: antiquewhite;
+background-color: green;
+color: white;
 font-family:'Roboto', sans-serif;
 font-size: 20px;
 padding: 7px 89px;
-transition-duration: 0.5s;
 outline: none;
 border: none;
-border-radius: 0.5em;
-box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px;
 margin-bottom: 10px;
+letter-spacing: 5px;
+
+}
+.buttoncreate:hover{
+    cursor: pointer;
+
 }
 
 .buttoncreate:active {
 background-color: black;
-cursor: pointer;
 
 }
-.buttonBack{
-background-color: black;
+.buttonBackCreated{
+    letter-spacing: 5px;
+
+    color: white;
+background-color: rgb(252, 0, 0);
 font-family:'Roboto', sans-serif;
-font-size: 14px;
-padding: 5px 22px;
+font-size: 20px;
+padding: 7px 89px;
+outline: none;
+border: none;
+}
+.buttonBackCreated:active{
+    background-color: white;
+    color: black;
+}
+.buttonBackCreated:hover{
+cursor: pointer;
 }

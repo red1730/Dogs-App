@@ -6,7 +6,7 @@
   border-radius: 5px;
   text-align: left;  
   display: flexbox;
-  margin-left: 20px;
+  margin-left: 80px;
   position: relative;
   top: -20px;
 }
@@ -17,14 +17,16 @@ font-size: 10px ;
 text-align: left;  
 display: flexbox;
 position: relative;
-top: -110px;
-margin-left: 38px;
+top: -130px;
+margin-left: 90px;
+letter-spacing: 5px;
+
 }
 
 .button {
   font-family:'Courier New',  monospace;
   font-size: 15px;
-  background-color:rgb(254, 0, 0);
+  background-color:rgb(252, 0, 0);
   border: none;
   color: whitesmoke;
   padding: 8px 52px;
