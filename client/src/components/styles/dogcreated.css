@@ -1,100 +1,94 @@
-.form_total{
-align-items: center;
-text-align: center;
-font-size: 23px;
-font-family:'Times New Roman', Times, serif;
-display: block;
-
+.form_total {
+  align-items: center;
+  text-align: center;
+  font-size: 23px;
+  font-family: "Times New Roman", Times, serif;
+  display: block;
 }
 
 .error {
-color: red;
-font-family:'Roboto', sans-serif;
-
+  color: red;
+  font-family: "Roboto", sans-serif;
 }
 
 .form {
-align-items: center;
-text-align: center;
-font-size: 20px;
-display: inline-block;
-margin: -2%;
-padding-right: 10px;
-
-
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  display: inline-block;
 }
 .form label {
-display: block;
-text-align: center;
-font-size: 18px;
-margin: 0 0 2vh 0;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 0 2vh 0;
 }
-.form input, textarea{
-display: block;
-width: 100%;
-padding: .5rem .8rem .5rem .8rem;
-margin: .9vw 0 ;
-border:0;
-font-size: 18px;
+.form input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.2rem 0.2rem 0.5rem;
+  margin: 0.9vw 0;
+  border: 0;
+  font-size: 18px;
 }
-.selectcreated{
-font-size: 20px;
-font-family:'Roboto', sans-serif;
-padding-right: 10px;
-
-padding: .5rem .8rem .5rem .8rem;
-width: 100%;
+.selectcreated {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  padding-right: 10px;
+  margin-right: 180px;
+  padding: 4px;
 }
 
 .list {
-flex-direction:row;
-text-align: left;
-width: fit-content;
-height: fit-content;
-font-family:'Roboto', sans-serif;
-background-color: white;
-display: block;
-padding: .5rem .8rem .5rem .8rem;
-min-width: 32rem;
-min-height: 1rem;
+  flex-direction: row;
+  text-align: left;
+  width: fit-content;
+  height: fit-content;
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  display: block;
+  /* padding: .5rem .8rem .5rem .8rem; */
+  min-width: 20rem;
+  max-width: 20rem;
+  min-height: 1.8rem;
 }
 
 .buttoncreate {
-background-color: green;
-color: white;
-font-family:'Roboto', sans-serif;
-font-size: 20px;
-padding: 7px 89px;
-outline: none;
-border: none;
-margin-bottom: 10px;
-letter-spacing: 5px;
-
+  background-color: green;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  padding: 5px 49px;
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+  letter-spacing: 5px;
 }
-.buttoncreate:hover{
-    cursor: pointer;
-
+.buttoncreate:hover {
+  cursor: pointer;
+  background-color: black;
 }
 
 .buttoncreate:active {
-background-color: black;
+  background-color: white;
+  color: black;
+}
+.buttonBackCreated {
+  letter-spacing: 5px;
 
+  color: white;
+  background-color: rgb(255, 89, 24);
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  padding: 5px 49px;
+  outline: none;
+  border: none;
 }
-.buttonBackCreated{
-    letter-spacing: 5px;
-
-    color: white;
-background-color: rgb(252, 0, 0);
-font-family:'Roboto', sans-serif;
-font-size: 20px;
-padding: 7px 89px;
-outline: none;
-border: none;
+.buttonBackCreated:active {
+  background-color: black;
 }
-.buttonBackCreated:active{
-    background-color: white;
-    color: black;
-}
-.buttonBackCreated:hover{
-cursor: pointer;
+.buttonBackCreated:hover {
+  cursor: pointer;
+  background-color: black;
 }

@@ -1,82 +1,80 @@
 .container {
-display: flex;
--webkit-box-pack: center;
-place-content: center;
-align-content: center;
-justify-content: center;
--webkit-box-align: center;
-align-items: center;
-flex-wrap: wrap;
-width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  place-content: center;
+  align-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.home {  
-font-family:'Times New Roman', Times, serif;
-font-size: 20px;
-position: absolute;  
-width: 100%;
-height: 100%;
-justify-content: center;
-align-items: center;
-text-align: center;
+.home {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .reload {
-color: white;
-background-color: black;
-font-family:'Roboto', sans-serif;
-font-size: 14px;
-padding: 9px 32px;
+  color: white;
+  background-color: black;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  padding: 9px 32px;
 
-outline: none;
-border: none;
+  outline: none;
+  border: none;
 
-letter-spacing: 2.5px;
-margin-bottom: 10px;
+  letter-spacing: 2.5px;
+  margin-bottom: 10px;
 }
-
 
 .reload:active {
-background-color: white;
-color: black;
+  background-color: white;
+  color: black;
+}
+.reload:hover {
+  color: rgb(255, 89, 24);
 }
 
-.titulo{
-font-size: 122px;
-padding-bottom: 2px;
-margin-top: 60px;
-margin-bottom: 40px;
-/* text-shadow: 5px 2px 1px  rgb(255, 255, 255) ; */
-
+.titulo {
+  color: white;
+  font-size: 122px;
+  padding-bottom: 2px;
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
 
-.topBar{
-color: white;
-text-decoration: none;
-background-color: rgb(252, 0, 0);
-font-family:'Roboto', sans-serif;
-font-size: 14px;
-padding: 5px 32px;
-transition-duration: 1.2s;
-outline: none;
-margin-left: 112px;
-
-letter-spacing: 2.5px;
-box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px;
-margin-bottom: 10px;
+.topBar {
+  color: white;
+  text-decoration: none;
+  background-color: rgb(255, 89, 24);
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  padding: 5px 18px;
+  transition-duration: 1.2s;
+  outline: none;
+  margin-top: 550px;
+  letter-spacing: 2.5px;
 }
 
-.topBar:hover{
-color: red;
-cursor: pointer;
+.topBar:hover {
+  color: black;
+  cursor: pointer;
 }
 
 .topBar:active {
-background-color: white;
- }
+  background-color: white;
+}
 
-.filters_select{
-    font-family:'Roboto', sans-serif;
+.filters_select {
+  font-family: "Roboto", sans-serif;
 
-font-size: 14px;
-padding: 2px;
+  font-size: 14px;
+  padding: 2px;
 }

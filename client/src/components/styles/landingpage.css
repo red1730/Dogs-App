@@ -1,10 +1,10 @@
 .landingpage {
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 90px;
   background-color: transparent;
   border: none;
   border-radius: 5px;
-  text-align: left;  
+  text-align: left;
   display: flexbox;
   margin-left: 80px;
   position: relative;
@@ -12,21 +12,20 @@
 }
 
 .subtitle {
-font-family:'Courier New',  monospace;
-font-size: 10px ;
-text-align: left;  
-display: flexbox;
-position: relative;
-top: -130px;
-margin-left: 90px;
-letter-spacing: 5px;
-
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  text-align: left;
+  display: flexbox;
+  position: relative;
+  top: -130px;
+  margin-left: 90px;
+  letter-spacing: 5px;
 }
 
 .button {
-  font-family:'Courier New',  monospace;
+  font-family: "Courier New", monospace;
   font-size: 15px;
-  background-color:rgb(252, 0, 0);
+  background-color: rgb(255, 89, 24);
   border: none;
   color: whitesmoke;
   padding: 8px 52px;
@@ -34,12 +33,12 @@ letter-spacing: 5px;
   margin-left: 90px;
   transition-duration: 1.2s;
   position: relative;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 .button:hover {
-  background-color: #ffffff;
-  color: rgb(255, 0, 0);
+  color: white;
+  background-color: black;
   cursor: pointer;
   transform: translateY(-7px);
 }

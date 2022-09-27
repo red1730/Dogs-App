@@ -72,11 +72,7 @@ export default function Home() {
 
   return (
     <div>
-      <div>
-        <Link className="topBar" to="/dogcreated">
-          Create Race
-        </Link>
-      </div>
+      <div></div>
       <div className="home">
         <h1 className="titulo">Dogs.</h1>
         <button className="reload" onClick={(e) => handleClick(e)}>
@@ -120,6 +116,11 @@ export default function Home() {
                 );
               })}
           </select>
+          <div>
+            <Link className="topBar" to="/dogcreated">
+              Create Race
+            </Link>
+          </div>
 
           <Paginado
             dogsPerPage={dogsPerPage}
@@ -156,4 +157,4 @@ export default function Home() {
       </div>
     </div>
   );
-};
+}

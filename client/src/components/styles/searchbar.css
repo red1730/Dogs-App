@@ -1,52 +1,43 @@
 .inputsearchbar {
-border: none;
-font-size: 17px;
-background-color: white;
-/* background-image: url('./img/searchicon.png'); */
-/* background-size: contain; */
-/* background-position: 0.5px 0,5px; */
-/* background-repeat: no-repeat; */
-padding-right: 53px;
-padding-top: 4px;
-padding-bottom: 2px;
-/* padding-right: 2px; */
-margin-right: 2px;
-
+  border: none;
+  font-size: 17px;
+  background-color: white;
+  padding-right: 53px;
+  padding-top: 3px;
+  padding-bottom: 2px;
+  margin-right: 2px;
 }
 
 .buttonsearch {
-    border: solid 0,5px rgb(252, 0, 0);
-    text-align: center;
-background-color: white;
-font-family:'Roboto', sans-serif;
-font-size: 17px;
-padding-left: 6px;
-padding-right: 6px;
-padding-top: 3px;
-padding-bottom: 3px;
+  border: none;
+  text-align: center;
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 
-transition-duration: 1.2s;
-
-/* border-radius: 0.5em; */
-/* box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px; */
-/* margin-bottom: 10px; */
+  transition-duration: 1.2s;
+  margin: 2px;
 }
 
-.buttonsearch:hover{
-    color: white;
-background-color: rgb(252, 0, 0);
-cursor: pointer;
-border: none;
+.buttonsearch:hover {
+  color: white;
+  background-color: rgb(255, 89, 24);
+  cursor: pointer;
+  border: none;
 }
 
 .buttonsearch:active {
-background-color: black;
-border:none
+  background-color: black;
+  border: none;
 }
 
-.filters{
-font-size: 0.8em;
-background-color: white;
-/* border-radius: 0.5em; */
-color: rgb(252, 0, 0);
+.filters {
+  font-size: 0.8em;
+  background-color: white;
+  color: rgb(252, 0, 0);
+  margin-bottom: 3px;
 }

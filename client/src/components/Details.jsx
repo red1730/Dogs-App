@@ -3,51 +3,58 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../actions";
-import "./styles/details.css"
+import "./styles/details.css";
 
-export default function Detail (props){
-    console.log(props)
-    const dispatch = useDispatch()
-    const id = props.match.params.id
+export default function Detail(props) {
+  console.log(props);
+  const dispatch = useDispatch();
+  const id = props.match.params.id;
 
-    useEffect(() => {
-        dispatch(getDetail(id))
-    },[dispatch, id])
+  useEffect(() => {
+    dispatch(getDetail(id));
+  }, [dispatch, id]);
 
-const myDog = useSelector ((state) => state.detail)///
+  const myDog = useSelector((state) => state.detail); ///
 
-return (
+  return (
     <>
-    <div className="details">
-        {
-            myDog.length > 0 ?
-            <div>
-
-                <div className="image">
-                <img src={myDog[0].image} alt= "not found" width="650px" height="450px" />
-
-                </div>
-                <div className="info">
-                <h1>{myDog[0].name}</h1>
-                <h5>Weight: {myDog[0].weight} Kgs.</h5>
-                <h5>Height: {myDog[0].height} cm.</h5>
-                <h5>Longevity: {myDog[0].years}.</h5>
-                <h5>Temperament: {myDog[0].createInDb ? myDog[0].temps.map( t => t.name + ' ') : myDog[0].temperament }.</h5>
-        <Link to= "/home">
-        <button className="buttonBack">Back</button>    
-        </Link>   
-                </div>
-
-            </div> : <p>Loading...</p>
-        }
-        </div>
-        <div>
-
-
-    </div>
+      <div className="details">
+        {myDog.length > 0 ? (
+          <div>
+            <div className="image">
+              <img
+                src={myDog[0].image}
+                alt="not found"
+                width="450px"
+                height="300px"
+              />
+            </div>
+            <div className="info">
+              <h1>{myDog[0].name}</h1>
+              <h5>Weight: {myDog[0].weight} Kgs.</h5>
+              <h5>Height: {myDog[0].height} cm.</h5>
+              <h5>Longevity: {myDog[0].years}.</h5>
+              <h5>
+                Temperament:{" "}
+                {myDog[0].createInDb
+                  ? myDog[0].temps.map((t) => t.name + " ")
+                  : myDog[0].temperament}
+                .
+              </h5>
+              <Link to="/home">
+                <button className="buttonBack">Back</button>
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="Loading">
+            <p>Loading...</p>
+          </div>
+        )}
+      </div>
+      <div></div>
     </>
-)
-
+  );
 }
 
 // import React from 'react'
@@ -55,8 +62,6 @@ return (
 // import {useDispatch, useSelector} from 'react-redux'
 // import {useEffect} from 'react'
 // import { getDogDetails } from '../actions'
-
-
 
 // function DogDetail(props) {
 //   const id= props.match.params.id
@@ -74,7 +79,7 @@ return (
 //         <button>Volver</button>
 //       </Link>
 //       {
-//         dogdetails.length > 0 ? 
+//         dogdetails.length > 0 ?
 //         <div>
 //           <img src={dogdetails[0].image} alt='no found' width='400px' height='300px' />
 //           <h1>Raza{' '} {dogdetails[0].name}</h1>

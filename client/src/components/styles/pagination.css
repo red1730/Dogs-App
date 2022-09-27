@@ -2,26 +2,27 @@
   display: inline-block;
   text-align: center;
   justify-content: center;
-  /* position: static; */
 }
 
 .number {
- font-family:'Courier New',  monospace;
-background: rgba(255, 255, 255, 0.48);
-border-radius: 2px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(7.1px);
--webkit-backdrop-filter: blur(7.1px);
-border: 1px solid rgba(255, 255, 255, 0.27);
-transition-duration: 0.3s;
-
+  font-family: "Courier New", monospace;
+  background: rgba(255, 255, 255, 0.48);
+  border-radius: 2px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+  border: 1px solid rgba(255, 255, 255, 0.27);
+  transition-duration: 0.3s;
 }
 .number:hover {
-  background-color:black;
-  transform: translateY(-7px);
+  background-color: black;
+
   color: white;
 }
 .number:active {
   background-color: black !important;
   color: red;
+}
+.number:focus {
+  transform: translateY(-7px);
 }

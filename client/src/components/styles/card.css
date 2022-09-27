@@ -1,5 +1,5 @@
 .card {
-  font-family:'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: rgb(53, 53, 53);
   font-size: 16px;
   padding: 10px;
@@ -10,22 +10,22 @@
   flex-direction: column;
   justify-content: space-around;
   height: 400px;
-  max-width: 250px; 
+  max-width: 250px;
   vertical-align: top;
   margin: 5px;
 
-background: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.48);
 
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(7.1px);
--webkit-backdrop-filter: blur(7.1px);
-border: 1px solid rgba(255, 255, 255, 0.27);
-transition-duration: 0.5s;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+  border: 1px solid rgba(255, 255, 255, 0.27);
+  transition-duration: 0.5s;
 }
 .card:hover {
-  border:1.5px solid white;
+  border: 1.5px solid white;
   transform: translateY(-7px);
-  background-color:  rgba(255, 255, 255);
+  background-color: rgba(255, 255, 255);
 }
 image {
   border-radius: 15px;

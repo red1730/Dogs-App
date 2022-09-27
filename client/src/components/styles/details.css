@@ -3,46 +3,54 @@
   display: flex;
   justify-content: center;
   align-items: center;
- } 
+  margin-top: 40px;
+}
 
 .image {
-position: relative;
-
-  
+  position: relative;
 }
 .info {
-text-align: center;
-font-size: 1.3rem;
-position: relative;
-line-height: 10px;
-padding-top: 2%;
-padding-bottom: 5%;
-max-width: 650px;
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+  line-height: 10px;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  max-width: 650px;
 
-background: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.48);
 
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(7.1px);
--webkit-backdrop-filter: blur(7.1px);
-border: 1px solid rgba(255, 255, 255, 0.27);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+  border: 1px solid rgba(255, 255, 255, 0.27);
 }
 
 .buttonBack {
-background-color: white;
-font-size: 15px;
-color: black;
-position: relative;
-margin-bottom: 3px;
-
-padding: 7px 89px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 5px;
+  background-color: white;
+  font-size: 15px;
+  color: black;
+  position: relative;
+  margin-bottom: 3px;
+  border: none;
+  padding: 7px 59px;
 }
 
 .buttonBack:hover {
+  cursor: pointer;
   color: white;
-  background-color: black;
+  background-color: rgb(255, 89, 24);
 }
 
-.buttonBack:active{
+.buttonBack:active {
   background-color: white;
-  color: red;
+  color: black;
+}
+.Loading {
+  margin: 0 auto;
+  max-width: 200px;
+  min-height: 100px;
+  background-color: #eee;
 }
