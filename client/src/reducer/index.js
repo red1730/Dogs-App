@@ -37,6 +37,13 @@ function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
 
+      case "DELETE_DOG":
+        return {
+          ...state,
+          dogs: state.dogs.filter(p => p.id !== action.payload.id)
+
+        }
+
     case "FILTER_BY_TEMPERAMENT":
       const allDogs = state.allDogs;
       const temperamentFiltered =

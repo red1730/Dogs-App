@@ -85,6 +85,8 @@ export function getDetail(id) {
   };
 }
 
+
+
 // Promise:
 // export function getDetail(id){
 //     return function (dispatch){
@@ -97,3 +99,20 @@ export function getDetail(id) {
 //         })
 //     }
 // }
+
+
+export function deleteDog(id){
+  return async function (dispatch) {
+    try{
+       var json = axios.delete('http://localhost:3001/dogs/' + id)
+       return dispatch({
+        type: "DELETE_DOG",
+        payload:json.data 
+       }
+       )
+
+    }catch(error){
+      console.log("error en el delete:", error)
+    }
+  }
+}

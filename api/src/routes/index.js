@@ -54,7 +54,7 @@ router.get("/dogs", async (req, res) => {
     );
     dogNames.length
       ? res.status(200).send(dogNames)
-      : res.status(400).send({ message: "this is a error" });
+      : res.status(404).send({ message: "this is a error" });
   } else {
     res.status(200).send(dogsTotal);
   }
@@ -109,4 +109,35 @@ router.post("/dogs", async (req, res) => {
   res.send("The race was successfully created");
 });
 
+router.delete("/dogs/:id", async (req, res) => {
+  const id = req.params.id;
+  console.log(id)
+  const totalDogs = await getAllDogs();
+  if(id){
+  let dogid = await totalDogs.filter(
+    (el) => el.createInDb === true && el.id == id
+  );
+  console.log("este es el dogid", dogid)
+  dogid.length
+    ? res.status(200).json(
+        await Dog.destroy({
+          where: { id: id },
+          truncate: {cascade: true},
+        })
+      )
+    : res.status(404).send("no se puede eliminar cDb");
+}});
+
+// router.delete ('/:id', async (req,res) => {
+//   const id =req.params.id ;
+//   const dogstotal = Dog.removdogse
+// })
 module.exports = router;
+
+// const dogsTotal = await getAllDogs();
+//   if (id) {
+//     let dogid = await dogsTotal.filter((el) => el.id == id);
+//     console.log(id);
+//     dogid.length
+//       ? res.status(200).json(dogid)
+//       : res.status(404).send("No se encontro esa raza");

@@ -12,10 +12,9 @@ const validate = (input) => {
     errors.name = "Name is required";
   }
   if (!input.height) {
-    errors.height = "Height is required"; //meros enteros positivos  /^-?\d*(\.\d+)?$/
+    errors.height = "Height is required"; // enteros positivos  /^-?\d*(\.\d+)?$/
   }
   if (!/^-?\d*(\.\d+)?$/.test(input.height)) {
-    //isNaN(input.height)
     errors.height = "Height must be a number.";
   }
   if (!input.weight) {
@@ -24,6 +23,13 @@ const validate = (input) => {
   if (!/^-?\d*(\.\d+)?$/.test(input.weight)) {
     errors.weight = "Weight must be a number.";
   }
+  if (!input.years) {
+    errors.years = "Longevity is required";
+  }
+  if (!/^-?\d*(\.\d+)?$/.test(input.years)) {
+    errors.years = "Longevity must be a number.";
+  }
+
   return errors;
 };
 
@@ -82,9 +88,11 @@ export default function DogCreate() {
       errors.name ||
       errors.weight ||
       errors.height ||
+      errors.years ||
       !input.name ||
       !input.weight ||
-      !input.height
+      !input.height ||
+      !input.years
     ) {
       alert("Something is wrong ⛔");
     } else {
@@ -145,7 +153,8 @@ export default function DogCreate() {
             value={input.years}
             name="years"
             onChange={(e) => handleChange(e)}
-          />
+            />
+            {errors.years && <p className="error">{errors.years}</p>}
         </div>
         <div>
           <input

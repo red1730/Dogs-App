@@ -49,8 +49,18 @@
   color: black;
 }
 .Loading {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
   margin: 0 auto;
   max-width: 200px;
-  min-height: 100px;
-  background-color: #eee;
+}
+.deleted {
+  color: white;
+  margin-top: 10px;
+  background-color: rgb(255, 89, 24);
+  border: none;
+}
+.deleted:hover{
+  color: black;
+  background-color: white;
 }
