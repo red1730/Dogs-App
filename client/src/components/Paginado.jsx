@@ -14,7 +14,7 @@ export default function Paginado({ dogsPerPage, allDogs, paginado }) {
         <ul className="pagination">
           {pageNumber &&
             pageNumber.map((number) => (
-              <button className="number" key={number}>
+              <button className="number" key={number} onClick={() => paginado(number)}>
                 <a href onClick={() => paginado(number)}>
                   {number}
                 </a>

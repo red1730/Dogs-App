@@ -128,16 +128,7 @@ router.delete("/dogs/:id", async (req, res) => {
     : res.status(404).send("no se puede eliminar cDb");
 }});
 
-// router.delete ('/:id', async (req,res) => {
-//   const id =req.params.id ;
-//   const dogstotal = Dog.removdogse
-// })
+
 module.exports = router;
 
-// const dogsTotal = await getAllDogs();
-//   if (id) {
-//     let dogid = await dogsTotal.filter((el) => el.id == id);
-//     console.log(id);
-//     dogid.length
-//       ? res.status(200).json(dogid)
-//       : res.status(404).send("No se encontro esa raza");
+

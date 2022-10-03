@@ -112,7 +112,7 @@ export function deleteDog(id){
        )
 
     }catch(error){
-      console.log("error en el delete:", error)
+      console.log(error)
     }
   }
 }
