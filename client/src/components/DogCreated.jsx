@@ -49,14 +49,14 @@ export default function DogCreate() {
   const [errors, setErrors] = useState({});
   console.log(errors);
 
-  const [input, setInput] = useState({
-    name: "",
-    height: "",
-    weight: "",
-    years: "",
-    image: "",
-    temperament: [],
-  });
+    const [input, setInput] = useState({
+      name: "",
+      height: "",
+      weight: "",
+      years: "",
+      image: "",
+      temperament: [],
+    });
   useEffect(() => {
     dispatch(getTemperament());
   }, [dispatch]);
