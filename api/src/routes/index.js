@@ -111,24 +111,22 @@ router.post("/dogs", async (req, res) => {
 
 router.delete("/dogs/:id", async (req, res) => {
   const id = req.params.id;
-  console.log(id)
+  console.log(id);
   const totalDogs = await getAllDogs();
-  if(id){
-  let dogid = await totalDogs.filter(
-    (el) => el.createInDb === true && el.id == id
-  );
-  console.log("este es el dogid", dogid)
-  dogid.length
-    ? res.status(200).json(
-        await Dog.destroy({
-          where: { id: id },
-          truncate: {cascade: true},
-        })
-      )
-    : res.status(404).send("no se puede eliminar cDb");
-}});
-
+  if (id) {
+    let dogid = await totalDogs.filter(
+      (el) => el.createInDb === true && el.id == id
+    );
+    console.log("este es el dogid", dogid);
+    dogid.length
+      ? res.status(200).json(
+          await Dog.destroy({
+            where: { id: id },
+            truncate: { cascade: true },
+          })
+        )
+      : res.status(404).send("no se puede eliminar cDb");
+  }
+});
 
 module.exports = router;
-
-
