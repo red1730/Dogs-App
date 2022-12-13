@@ -1,6 +1,5 @@
 
 
-## Individual Project - Henry
 
 
 # Dogs.
